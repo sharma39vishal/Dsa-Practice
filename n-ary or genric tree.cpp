@@ -9,17 +9,16 @@ void fileio(){
 #endif
 }
 
-ll diameter(vector<vector<ll>> & v,ll curr,ll pr){
+ll height(vector<vector<ll>> & v,ll curr,ll pr){
     
     ll maxm=-1;        
     for (ll i = 0; i < v[curr].size(); ++i){
         if(v[curr][i]!=pr){
-        maxm=max(diameter(v,v[curr][i],curr),maxm);
+        maxm=max(height(v,v[curr][i],curr),maxm);
       }
     }
     return maxm+1;
 }
-
 
 void traverse(vector<vector<ll>> & v,ll curr,ll pr){
     cout<<curr<<endl;
@@ -60,8 +59,8 @@ cout<<"traversal of n-ary tree"<<endl;
 traverse(v,2,0);
 
 // traverse
-cout<<"diameter of n-ary tree"<<endl;
-cout<<diameter(v,5,0)<<endl;
+cout<<"height of n-ary tree"<<endl;
+cout<<height(v,5,0)<<endl;
 
 }
 
