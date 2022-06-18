@@ -9,6 +9,18 @@ void fileio(){
 #endif
 }
 
+ll diameter(vector<vector<ll>> & v,ll curr,ll pr){
+    
+    ll maxm=-1;        
+    for (ll i = 0; i < v[curr].size(); ++i){
+        if(v[curr][i]!=pr){
+        maxm=max(diameter(v,v[curr][i],curr),maxm);
+      }
+    }
+    return maxm+1;
+}
+
+
 void traverse(vector<vector<ll>> & v,ll curr,ll pr){
     cout<<curr<<endl;
     for (ll i = 0; i < v[curr].size(); ++i){
@@ -34,7 +46,7 @@ for (ll i = 0; i < n-1; ++i){
 }
 
 // print adjency list
-
+cout<<"adjency list"<<endl;
 for (int i = 0; i < v.size(); ++i){
     cout<<i<<": ";
     for (int j = 0; j< v[i].size(); ++j){
@@ -46,6 +58,10 @@ for (int i = 0; i < v.size(); ++i){
 // traverse
 cout<<"traversal of n-ary tree"<<endl;
 traverse(v,2,0);
+
+// traverse
+cout<<"diameter of n-ary tree"<<endl;
+cout<<diameter(v,5,0)<<endl;
 
 }
 
